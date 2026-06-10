@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trae - cann-install</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ide">
+    <div class="titlebar">
+      <div class="titlebar__left">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="titlebar__center">
+        <span class="titlebar__file" id="titleFile">main.ts</span>
+        <span class="titlebar__sep">-</span>
+        <span class="titlebar__project">cann-install</span>
+        <span class="titlebar__sep">-</span>
+        <span class="titlebar__trae">Trae</span>
+      </div>
+      <div class="titlebar__right">
+        <span class="titlebar__branch">⎇ main</span>
+      </div>
+    </div>
+
+    <div class="workbench">
+      <aside class="activitybar">
+        <button class="activitybar__item active" data-view="explorer" title="资源管理器 (⇧⌘E)">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </button>
+        <button class="activitybar__item" data-view="search" title="搜索 (⇧⌘F)">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button class="activitybar__item" data-view="git" title="源代码管理 (^⌘G)">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="6" r="2.5"></circle>
+            <circle cx="6" cy="18" r="2.5"></circle>
+            <circle cx="18" cy="12" r="2.5"></circle>
+            <path d="M6 8.5v7M8.5 6h3a3 3 0 0 1 3 3v1M8.5 12h3a3 3 0 0 1 3 3"></path>
+          </svg>
+          <span class="activitybar__badge">5</span>
+        </button>
+        <button class="activitybar__item" data-view="debug" title="运行和调试 (⇧⌘D)">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="2" x2="12" y2="4"></line>
+            <line x1="12" y1="20" x2="12" y2="22"></line>
+            <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>
+            <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>
+            <line x1="2" y1="12" x2="4" y2="12"></line>
+            <line x1="20" y1="12" x2="22" y2="12"></line>
+            <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>
+            <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>
+          </svg>
+        </button>
+        <button class="activitybar__item" data-view="ext" title="扩展 (⇧⌘X)">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </button>
+        <div class="activitybar__spacer"></div>
+        <button class="activitybar__item" data-view="ai" title="Trae AI">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"></path>
+            <path d="M9 12l2 2 4-4"></path>
+          </svg>
+        </button>
+        <button class="activitybar__item" data-view="account" title="账户">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 21c0-4 4-7 8-7s8 3 8 7"></path>
+          </svg>
+        </button>
+        <button class="activitybar__item" data-view="settings" title="设置">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </aside>
+
+      <aside class="sidebar">
+        <div class="sidebar__header">资源管理器</div>
+        <div class="sidebar__content">
+          <div class="section">
+            <div class="section__title">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" class="chevron--down"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+              <span>CANN-INSTALL</span>
+              <span class="section__actions">
+                <span class="action" title="新建文件">+</span>
+                <span class="action" title="刷新">↻</span>
+              </span>
+            </div>
+            <ul class="tree">
+              <li class="tree__row" data-type="folder" data-name="src">
+                <span class="tree__indent"></span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" class="tree__chevron chevron--down"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                <span class="tree__icon folder-icon">📁</span>
+                <span class="tree__label">src</span>
+                <ul class="tree__children">
+                  <li class="tree__row" data-type="folder" data-name="components">
+                    <span class="tree__indent" style="padding-left:8px;"></span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" class="tree__chevron chevron--right"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    <span class="tree__icon folder-icon">📁</span>
+                    <span class="tree__label">components</span>
+                  </li>
+                  <li class="tree__row active" data-type="file" data-file="main">
+                    <span class="tree__indent" style="padding-left:8px;"></span>
+                    <span class="tree__chevron"></span>
+                    <span class="tree__icon file-icon ts-icon">TS</span>
+                    <span class="tree__label">main.ts</span>
+                  </li>
+                  <li class="tree__row" data-type="file" data-file="utils">
+                    <span class="tree__indent" style="padding-left:8px;"></span>
+                    <span class="tree__chevron"></span>
+                    <span class="tree__icon file-icon ts-icon">TS</span>
+                    <span class="tree__label">utils.ts</span>
+                  </li>
+                  <li class="tree__row" data-type="file" data-file="styles">
+                    <span class="tree__indent" style="padding-left:8px;"></span>
+                    <span class="tree__chevron"></span>
+                    <span class="tree__icon file-icon css-icon">CSS</span>
+                    <span class="tree__label">styles.css</span>
+                  </li>
+                </ul>
+              </li>
+              <li class="tree__row" data-type="folder" data-name="tests">
+                <span class="tree__indent"></span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" class="tree__chevron chevron--right"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                <span class="tree__icon folder-icon">📁</span>
+                <span class="tree__label">tests</span>
+              </li>
+              <li class="tree__row" data-type="file" data-file="package">
+                <span class="tree__indent"></span>
+                <span class="tree__chevron"></span>
+                <span class="tree__icon file-icon json-icon">{ }</span>
+                <span class="tree__label">package.json</span>
+              </li>
+              <li class="tree__row" data-type="file" data-file="readme">
+                <span class="tree__indent"></span>
+                <span class="tree__chevron"></span>
+                <span class="tree__icon file-icon md-icon">M</span>
+                <span class="tree__label">README.md</span>
+              </li>
+            </ul>
+          </div>
+          <div class="section">
+            <div class="section__title">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" class="chevron--right"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+              <span>大纲</span>
+            </div>
+          </div>
+          <div class="section">
+            <div class="section__title">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" class="chevron--right"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+              <span>时间线</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="editor-area">
+        <div class="tabs" id="tabs">
+          <div class="tabs__files">
+            <div class="tab active" data-file="main">
+              <span class="tab__icon file-icon ts-icon">TS</span>
+              <span class="tab__label">main.ts</span>
+              <span class="tab__dirty">•</span>
+              <span class="tab__close" title="关闭">×</span>
+              <span class="tab__border"></span>
+            </div>
+            <div class="tab" data-file="utils">
+              <span class="tab__icon file-icon ts-icon">TS</span>
+              <span class="tab__label">utils.ts</span>
+              <span class="tab__close" title="关闭">×</span>
+              <span class="tab__border"></span>
+            </div>
+            <div class="tab" data-file="package">
+              <span class="tab__icon file-icon json-icon">{ }</span>
+              <span class="tab__label">package.json</span>
+              <span class="tab__close" title="关闭">×</span>
+              <span class="tab__border"></span>
+            </div>
+          </div>
+          <button class="run-install-btn" id="runInstallBtn">
+            <span class="run-install-btn__icon">▶</span>
+            <span class="run-install-btn__text">执行安装</span>
+          </button>
+        </div>
+
+        <div class="breadcrumbs" id="breadcrumbs">
+          <div class="breadcrumbs__left">
+            <span>cann-install</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" class="breadcrumb-sep"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            <span>src</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" class="breadcrumb-sep"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            <span>main.ts</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" class="breadcrumb-sep"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            <span>install_cann</span>
+          </div>
+        </div>
+
+        <div class="editor" id="editor">
+          <div class="line-numbers" id="lineNumbers"></div>
+          <div class="gutter">
+            <div class="gutter__marker gutter__marker--breakpoint" data-line="10" title="断点">●</div>
+          </div>
+          <pre class="code" id="code" spellcheck="false"></pre>
+        </div>
+
+        <div class="bottom-panel">
+          <div class="bottom-panel__header">
+            <div class="panel-tabs" id="panelTabs">
+              <div class="panel-tab active" data-panel="problems">问题 <span class="panel-badge panel-badge--warn">3</span></div>
+              <div class="panel-tab" data-panel="output">输出</div>
+              <div class="panel-tab" data-panel="debug-console">调试控制台</div>
+              <div class="panel-tab" data-panel="terminal">终端</div>
+              <div class="panel-tab" data-panel="ports">端口</div>
+            </div>
+            <div class="panel-actions">
+              <span class="panel-action" title="新建终端">+</span>
+              <span class="panel-action" title="拆分面板">⊟</span>
+              <span class="panel-action" title="收起面板 (⌘J)">—</span>
+              <span class="panel-action panel-action--close" title="关闭面板">×</span>
+            </div>
+          </div>
+          <div class="bottom-panel__body">
+            <div class="panel-content" data-panel="problems" data-active="true">
+              <div class="problems-section">
+                <div class="problem-row problem-row--warn">
+                  <span class="problem-icon">⚠</span>
+                  <span class="problem-text">未检测到昇腾 NPU 驱动目录 (/usr/local/Ascend/driver)。</span>
+                  <span class="problem-location">main.ts:7:1</span>
+                </div>
+                <div class="problem-row problem-row--warn">
+                  <span class="problem-icon">⚠</span>
+                  <span class="problem-text">CANN_VERSION 为硬编码值，建议根据实际硬件型号配置。</span>
+                  <span class="problem-location">main.ts:35:22</span>
+                </div>
+                <div class="problem-row problem-row--info">
+                  <span class="problem-icon">i</span>
+                  <span class="problem-text">建议在 Ubuntu 22.04 或 openEuler 22.03 系统上执行。</span>
+                  <span class="problem-location">README.md:5:1</span>
+                </div>
+              </div>
+            </div>
+            <div class="panel-content" data-panel="output">
+              <div class="output-content">
+                <div class="output-line">[Trae] 启动工作区...</div>
+                <div class="output-line">[Trae] TypeScript 语言服务已就绪</div>
+                <div class="output-line">[Trae] ESLint 已加载</div>
+                <div class="output-line">[Trae] Git: main 分支</div>
+              </div>
+            </div>
+            <div class="panel-content" data-panel="terminal">
+              <div class="terminal" id="terminal">
+                <div class="terminal__line"><span class="term-info">➜</span> <span class="term-muted">CANN Install Assistant</span> — 等待用户操作...</div>
+                <div class="terminal__line"><span class="term-muted">  提示: 点击右侧 AI 面板的「🔍 检测环境」或「📦 推荐安装」按钮开始</span></div>
+                <div class="terminal__line">&nbsp;</div>
+                <div class="terminal__line"><span class="term-prompt">trae@ascend</span>:<span class="term-path">~/cann-install</span>$ <span class="term-cursor" id="termCursor"></span><span class="term-typed" id="termTyped"></span></div>
+              </div>
+            </div>
+            <div class="panel-content" data-panel="debug-console">
+              <div class="debug-console">
+                <div class="debug-line">Debug session is not active.</div>
+              </div>
+            </div>
+            <div class="panel-content" data-panel="ports">
+              <div class="ports-empty">未转发端口。</div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <aside class="aipanel" id="aipanel">
+        <div class="aipanel__header">
+          <div class="aipanel__title">
+            <span class="aipanel__icon">✨</span>
+            <span class="aipanel__name">Trae AI</span>
+            <span class="aipanel__badge">CANN Install Assistant</span>
+          </div>
+          <div class="aipanel__actions">
+            <span class="aipanel__action" title="折叠/展开" id="aipanelToggle">⇲</span>
+            <span class="aipanel__action" title="清空对话" id="aipanelClear">🗑️</span>
+          </div>
+        </div>
+        <div class="aipanel__quick">
+          <button class="ai-quick-btn" data-action="detect-env">🔍 检测环境</button>
+          <button class="ai-quick-btn" data-action="cann-recommend">📦 推荐安装</button>
+          <button class="ai-quick-btn" data-action="help">❓ 帮助</button>
+        </div>
+        <div class="aipanel__body" id="aiBody">
+          <div class="ai-msg ai-msg--assistant ai-msg--welcome">
+            <div class="ai-msg-icon">🤖</div>
+            <div class="ai-msg-content">
+              <div class="ai-msg-title">你好！我是 CANN 智能安装助手</div>
+              <div class="ai-msg-body">
+                <p>我可以帮你完成 CANN 的环境检测和安装。你可以这样问我：</p>
+                <ul>
+                  <li><em>"检测当前环境"</em> — 分析系统配置</li>
+                  <li><em>"推荐安装 CANN"</em> — 完整三步安装指导</li>
+                  <li><em>"CANN 8.0.RC1 支持哪些系统？"</em> — 查询版本信息</li>
+                  <li><em>"需要什么 Python 版本？"</em> — 技术规格咨询</li>
+                  <li><em>"昇腾 NPU 如何检测？"</em> — 硬件相关问题</li>
+                </ul>
+                <p class="ai-tip">💡 点击上方快捷按钮，或在下方输入框输入你的问题！</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="aipanel__input">
+          <span class="ai-icon-small">💬</span>
+          <input type="text" id="aiChatInput" class="ai-chat-input" placeholder="输入问题，例如：检测当前环境 / 推荐安装 CANN / Python 版本要求？" autocomplete="off" />
+          <span class="ai-actions">
+            <span class="ai-action" id="aiActionAttach" title="附加文件">📎</span>
+            <span class="ai-send" id="aiSendBtn" title="发送 (Enter)">➤</span>
+          </span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="statusbar">
+      <div class="statusbar__left">
+        <span class="statusbar__item" title="分支: main">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v6m0 10v-3"/></svg>
+          main
+        </span>
+        <span class="statusbar__item" title="同步 0  incoming, 2 outgoing">⟳ 0↓ 2↑</span>
+        <span class="statusbar__item" title="错误和警告">
+          <span class="statusbar__errors">✕ 0</span>
+          <span class="statusbar__warnings">⚠ 3</span>
+        </span>
+      </div>
+      <div class="statusbar__right">
+        <span class="statusbar__item" title="编辑器行/列">第 12 行，第 5 列</span>
+        <span class="statusbar__item">空格: 2</span>
+        <span class="statusbar__item">UTF-8</span>
+        <span class="statusbar__item">LF</span>
+        <span class="statusbar__item">TypeScript</span>
+        <span class="statusbar__item" title="Prettier">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><circle cx="12" cy="12" r="10" opacity=".3"/></svg>
+          Prettier
+        </span>
+        <span class="statusbar__item" title="反馈">🙂</span>
+        <span class="statusbar__item statusbar__item--bell" title="通知">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 0 0-7 7v4l-2 2h18l-2-2V9a7 7 0 0 0-7-7z"/><circle cx="10" cy="20" r="1.5"/></svg>
+        </span>
+      </div>
+    </div>
+
+    <div class="commandpalette" id="commandPalette">
+      <div class="commandpalette__input">
+        <span class="commandpalette__prefix">&gt;</span>
+        <input type="text" id="commandInput" placeholder="Type '?' for help, or a command..." />
+      </div>
+      <div class="commandpalette__list" id="commandList">
+        <div class="command-item active"><span class="command-icon">◐</span> File: Open File</div>
+        <div class="command-item"><span class="command-icon">◐</span> View: Toggle Terminal</div>
+        <div class="command-item"><span class="command-icon">◐</span> Git: Pull</div>
+        <div class="command-item"><span class="command-icon">◐</span> Preferences: Color Theme</div>
+        <div class="command-item"><span class="command-icon">⚙</span> Preferences: Settings</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
